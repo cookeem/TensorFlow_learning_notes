@@ -1,6 +1,10 @@
 # tensorflow学习笔记
 
-- 学习内容来源于：[caicloud / tensorflow-tutorial](https://github.com/caicloud/tensorflow-tutorial)，电子书：《Tensorflow实战Google深度学习框架》
+- 学习内容来源于：[caicloud / tensorflow-tutorial](https://github.com/caicloud/tensorflow-tutorial)
+
+- 电子书：《Tensorflow实战Google深度学习框架》
+
+![Tensorflow实战Google深度学习框架](images/cover.jpg)
 
 对样例中python2.x代码以及注释进行补充和修正，修正为python3.x代码。代码使用[jupyter/jupyter](https://github.com/jupyter/jupyter)进行交互演示，运行以下命令演示：
 
