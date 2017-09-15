@@ -10,8 +10,14 @@ jupyter notebook
 ```
 
 ## 目录：
-[Chapter03 - TensorFlow入门](Chapter03)
-[Chapter03 - TensorFlow入门]()
+1. [第3章 TensorFlow入门](Chapter03)
+1. [第4章 深层神经网络](Chapter04)
+1. [第5章 MNIST数字识别问题](Chapter05)
+1. [第6章 图像识别与卷积神经网络](Chapter06)
+1. [第7章 图像数据处理](Chapter07)
+1. [第8章 循环神经网络](Chapter08)
+1. [第9章 TensorBoard可视化](Chapter09)
+1. [第10章 TensorFlow计算加速](Chapter10)
 
 ### 1、多层：使用多层权重，例如多层全连接方式
 > 以下定义了三个隐藏层的全连接方式的神经网络
