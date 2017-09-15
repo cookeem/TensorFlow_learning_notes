@@ -10,6 +10,7 @@
 
 ```sh
 git clone https://github.com/cookeem/TensorFlow_learning_notes
+cd TensorFlow_learning_notes
 jupyter notebook
 ```
 
