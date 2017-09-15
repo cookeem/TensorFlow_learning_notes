@@ -4,6 +4,7 @@
 
 - 电子书：《Tensorflow实战Google深度学习框架》
 
+![Tensorflow实战Google深度学习框架](images/cover.JPG)
 
 对样例中python2.x代码以及注释进行补充和修正，修正为python3.x代码。代码使用[jupyter/jupyter](https://github.com/jupyter/jupyter)进行交互演示，运行以下命令演示：
 
