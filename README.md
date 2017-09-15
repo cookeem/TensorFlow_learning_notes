@@ -8,7 +8,7 @@
 
 对样例中python2.x代码以及注释进行补充和修正，修正为python3.x代码。代码使用[jupyter/jupyter](https://github.com/jupyter/jupyter)进行交互演示，运行以下命令演示：
 
-```
+```sh
 git clone https://github.com/cookeem/TensorFlow_learning_notes
 jupyter notebook
 ```
@@ -29,7 +29,9 @@ jupyter notebook
 > 以下定义了三个隐藏层的全连接方式的神经网络
 > 样例代码：
 
-```
+```python
+import tensorflow as tf
+
 l1 = tf.matmul(x, w1)
 l2 = tf.matmul(l1, w2)
 y = tf.matmul(l2,w3)
@@ -43,7 +45,9 @@ y = tf.matmul(l2,w3)
 > tf.nn.elu
 > 样例代码：
 
-```
+```python
+import tensorflow as tf
+
 a = tf.nn.relu(tf.matmul(x, w1) + biase1)
 y = tf.nn.relu(tf.matmul(a, w2) + biase2)
 ```
@@ -53,33 +57,44 @@ y = tf.nn.relu(tf.matmul(a, w2) + biase2)
 > 用于计算预测结果矩阵Y和实际结果矩阵Y_之间的距离
 > 样例代码：
 
-```
+```python
+import tensorflow as tf
+
 cross_entropy = -tf.reduce_mean(y_ * tf.log(tf.clip_by_value(y, 1e-10, 1.0)))
 ```
 
-```
+```python
+import tensorflow as tf
+
 v = tf.constant([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
 tf.reduce_mean(tf.clip_by_value(v, 0.0, 10.0))
 ```
 
 > 对于分类问题，通常把交叉熵与softmax回归一起使用
 
-```
+```python
+import tensorflow as tf
+
 cross_entropy = tf.nn.softmax_cross_entropy_with_logits(y, y_)
 ```
 
 > 对于回归问题，通常使用mse（均方误差函数）计算损失函数
 
-```
+```python
+import tensorflow as tf
+
 mse_loss = tf.reduce_mean(tf.square(y_ - y))
 
+# 与以下函数计算结果完全一致
 dataset_size = 1000
 mse_loss = tf.reduce_sum(tf.pow(y_ - y, 2)) / dataset_size
 ```
 
 > 自定义条件化的损失函数
 
-```
+```python
+import tensorflow as tf
+
 loss_less = 10
 loss_more = 1
 loss = tf.reduce_sum(tf.where(tf.greater(y, y_), (y - y_) * loss_more, (y_ - y) * loss_less))
@@ -90,7 +105,9 @@ train_step = tf.train.AdamOptimizer(0.001).minimize(loss)
 > 一般优化器的目标是优化权重W和偏差biases，最小化损失函数的结果
 > 以下优化器会不断优化W和biases
 
-```
+```python
+import tensorflow as tf
+
 LEARNING_RATE = 0.001
 mse_loss = tf.reduce_mean(tf.square(y_ - y))
 train_op = tf.train.AdamOptimizer(LEARNING_RATE).minimize(mse_loss)
@@ -99,7 +116,9 @@ train_op = tf.train.AdamOptimizer(LEARNING_RATE).minimize(mse_loss)
 ### 5、优化学习率LEARNING_RATE
 > 学习率设置过大可能导致无法收敛，学习率设置过小可能导致收敛过慢
 
-```
+```python
+import tensorflow as tf
+
 global_step = tf.Variable(0)
 learning_rate = tf.train.exponential_decay(
     learning_rate=0.1, 
@@ -116,7 +135,9 @@ train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss, global_step=glob
 > 避免训练出来的模型过分复杂，即模型记住了所有数据（包括噪声引起的误差）
 > 因此需要引入正则化函数叠加的方式，避免模型出现过拟合
 
-```
+```python
+import tensorflow as tf
+
 v_lambda = 0.001
 w = tf.Variable(tf.random_normal([2, 1], stddev=1, seed=1))
 y = tf.matmul(x, w)
@@ -127,7 +148,9 @@ mse_loss = tf.reduce_mean(tf.square(y_ - y) + tf.contrib.layers.l2_regularizer(v
 > 用于控制模型的变化速度，可以控制权重W以及偏差biases
 > 例如：avg_class.average(w) avg_class.average(biases)
 
-```
+```python
+import tensorflow as tf
+
 v1 = tf.Variable(0, dtype=tf.float32)
 step = tf.Variable(0, trainable=False)
 ema = tf.train.ExponentialMovingAverage(decay=0.99, num_updates=step)
