@@ -23,6 +23,8 @@ jupyter notebook
 1. [第9章 TensorBoard可视化](Chapter09)
 1. [第10章 TensorFlow计算加速](Chapter10)
 
+## 学习笔记：
+
 ### 1、多层：使用多层权重，例如多层全连接方式
 > 以下定义了三个隐藏层的全连接方式的神经网络
 > 样例代码：
